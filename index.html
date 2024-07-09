@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meriți o a doua șansă</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f0f0f0;
+        }
+        .header {
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .header-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        .header-content p {
+            font-size: 1.5rem;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(52, 152, 219, 0.9);
+            padding: 1rem 0;
+            z-index: 1000;
+            text-align: center;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+        .nav a:hover {
+            color: #ecf0f1;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .lawyer-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        .lawyer-box {
+            width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .lawyer-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .lawyer-image {
+            height: 400px;
+            overflow: hidden;
+        }
+        .lawyer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .lawyer-box:hover .lawyer-image img {
+            transform: scale(1.05);
+        }
+        .lawyer-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .lawyer-info h2 {
+            margin-top: 0;
+            color: #1a237e;
+        }
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #c62828;
+            color: white;
+            text-align: center;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #b71c1c;
+        }
+        .content-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .about-section {
+            background-color: white;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-content h2 {
+            color: #1a237e;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .values-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        .value-item {
+            flex-basis: 30%;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .value-item:hover {
+            transform: translateY(-5px);
+        }
+        .value-item h3 {
+            color: #c62828;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="#despre" onclick="showSection('despre')">Despre Noi</a>
+        <a href="#servicii" onclick="showSection('servicii')">Servicii</a>
+        <a href="#contact" onclick="showSection('contact')">Contact</a>
+    </nav>
+
+    <header class="header">
+        <div class="header-content">
+            <h1>Meriți o a doua șansă</h1>
+            <p>Plugaru & Simion - Avocați pentru reabilitare și dreptate</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="lawyer-section" class="lawyer-container">
+            <div id="boxF" class="lawyer-box" onclick="toggleBio('F')">
+                <div class="lawyer-image">
+                    <img src="nicoleta.png" alt="Nicoleta Plugaru">
+                </div>
+                <div class="lawyer-info">
+                    <h2>Nicoleta Plugaru</h2>
+                    <p>Specialist în Drept Civil</p>
+                </div>
+            </div>
+            <div id="boxB" class="lawyer-box" onclick="toggleBio('B')">
+                <div class="lawyer-image">
+                    <img src="dan.png" alt="Dan-Alexandru SIMION">
+                </div>
+                <div class="lawyer-info">
+                    <h2>Dan-Alexandru SIMION</h2>
+                    <p>Expert în Drept Comercial</p>
+                </div>
+            </div>
+        </div>
+        <div class="cta-container">
+            <a href="#contact" class="cta-button" onclick="showSection('contact')">Lasă-ne să te ajutăm</a>
+        </div>
+        <div id="content" class="content-section" style="display: none;"></div>
+    </div>
+
+    <section id="despre" class="about-section">
+        <div class="about-content">
+            <h2>Despre Noi</h2>
+            <p>La Plugaru & Simion, credem cu tărie că fiecare persoană merită o a doua șansă. Ne-am dedicat carierele pentru a oferi reprezentare juridică de calitate, empatică și profesională, ajutând clienții noștri să depășească obstacolele și să își reconstruiască viețile.</p>
+            <p>Cu o experiență combinată de peste 35 de ani, echipa noastră a dezvoltat o înțelegere profundă a provocărilor cu care se confruntă clienții noștri. Ne străduim să oferim nu doar soluții juridice, ci și sprijin moral și îndrumare practică în procesul de reabilitare și reintegrare.</p>
+            <p>Valorile noastre fundamentale ghidează fiecare aspect al activității noastre:</p>
+            <div class="values-list">
+                <div class="value-item">
+                    <h3>Empatie</h3>
+                    <p>Înțelegem provocările clienților noștri și le oferim sprijin necondiționat.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Integritate</h3>
+                    <p>Acționăm întotdeauna cu onestitate și transparență în relația cu clienții noștri.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Profesionalism</h3>
+                    <p>Oferim servicii juridice de cea mai înaltă calitate, bazate pe expertiză și dedicare.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const boxF = document.getElementById('boxF');
+        const boxB = document.getElementById('boxB');
+        const content = document.getElementById('content');
+
+        const bios = {
+            F: '<strong>Nicoleta Plugaru</strong><br>Avocat cu peste 15 ani de experiență în drept civil. Specializată în oferirea unei noi șanse clienților săi prin litigii familiale și proprietăți imobiliare. Recunoscută pentru abordarea sa empatică și profesională în cazuri complexe.<br><a href="#" onclick="showFullBio(\'F\')">Citește mai mult</a>',
+            B: '<strong>Dan-Alexandru SIMION</strong><br>Expert în drept comercial cu o carieră de 20 de ani. Dedicat găsirii soluțiilor pentru o a doua șansă în afaceri. Specializat în fuziuni, achiziții și dreptul proprietății intelectuale. Apreciat pentru expertiza sa în negocieri și în oferirea de noi oportunități clienților.<br><a href="#" onclick="showFullBio(\'B\')">Citește mai mult</a>'
+        };
+
+        function toggleBio(lawyer) {
+            const otherLawyer = lawyer === 'F' ? 'B' : 'F';
+            const otherBox = lawyer === 'F' ? boxB : boxF;
+            
+            otherBox.querySelector('.lawyer-image').style.display = 'none';
+            otherBox.querySelector('.lawyer-info').innerHTML = bios[lawyer];
+        }
+
+        function showFullBio(lawyer) {
+            alert(`Biografie completă pentru ${lawyer === 'F' ? 'Nicoleta Plugaru' : 'Dan-Alexandru SIMION'}`);
+        }
+
+        function showSection(section) {
+            if (section === 'despre') {
+                document.getElementById('despre').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                content.style.display = 'block';
+                content.innerHTML = section === 'servicii' 
+                    ? '<h2>Serviciile Noastre</h2><ul><li>Consultanță juridică pentru un nou început</li><li>Reprezentare în instanță pentru reabilitare</li><li>Mediere și rezolvare alternativă a disputelor</li><li>Asistență în restructurarea afacerilor</li><li>Consiliere pentru reintegrare socială și profesională</li></ul>'
+                    : section === 'contact'
+                    ? '<h2>Contactează-ne pentru Șansa Ta</h2><p>Suntem aici să te ajutăm să îți reconstruiești viața. Contactează-ne pentru o consultație gratuită și confidențială.</p><p>Adresă: Str. Justiției nr. 10, București<br>Telefon: 021 123 4567<br>Email: contact@a-doua-sansa.ro</p>'
+                    : '';
+                
+                document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        window.onload = function() {
+            if(window.location.hash) {
+                showSection(window.location.hash.substr(1));
+            }
+        }
+    </script>
+</body>
+</html>
